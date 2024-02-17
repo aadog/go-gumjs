@@ -1,7 +1,7 @@
 //go:build !posix && cgo
 // +build !posix,cgo
 
-package gum
+package gumjs
 
 /*
 #include <string.h>

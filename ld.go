@@ -1,4 +1,4 @@
-package gum
+package gumjs
 
 /*
 #cgo LDFLAGS: -lfrida-gumjs -ldl -lm

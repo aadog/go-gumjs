@@ -1,4 +1,4 @@
-package gum
+package gumjs
 
 /*
 #include "invocationlistener.h"

@@ -1,4 +1,4 @@
-package gum
+package gumjs
 
 type IListenerCallback interface {
 	GetOnEnter() func(context *InvocationContext)

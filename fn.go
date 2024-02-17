@@ -1,4 +1,4 @@
-package gum
+package gumjs
 
 import "C"
 import "unsafe"
