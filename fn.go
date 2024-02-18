@@ -12,3 +12,17 @@ func CString(b string) *C.char {
 	copy(utf8StrArr, temp)
 	return (*C.char)(unsafe.Pointer(&utf8StrArr[0]))
 }
+
+func CBytesToGoBytes(ustr unsafe.Pointer, n int) []byte {
+	return copyBytes(ustr, n)
+}
+func copyBytes(src unsafe.Pointer, strLen int) []byte {
+	if strLen == 0 {
+		return nil
+	}
+	str := make([]byte, strLen)
+	for i := 0; i < strLen; i++ {
+		str[i] = *(*byte)(unsafe.Pointer(uintptr(src) + uintptr(i)))
+	}
+	return str
+}

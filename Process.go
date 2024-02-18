@@ -2,8 +2,6 @@ package gumjs
 
 /*
 #include <frida-gumjs.h>
-#include <stdio.h>
-#include "go-gum.h"
 */
 import "C"
 import (
@@ -86,27 +84,3 @@ func (p ProcessStruct) FindModuleByName(moduleName string) *ModuleDetails {
 	}
 	return nil
 }
-
-//func (p ProcessStruct) FindExportByName(moduleName *string, SymbolName string) GumAddress {
-//	var cModule_name *C.char = nil
-//	if moduleName != nil {
-//		cModule_name = CString(*moduleName)
-//	}
-//	cSymbolName := CString(SymbolName)
-//	return GumAddress(C.gum_module_find_export_by_name(cModule_name, cSymbolName))
-//}
-//func (p ProcessStruct) FindSymbolByName(moduleName *string, SymbolName string) GumAddress {
-//	var cModule_name *C.char = nil
-//	if moduleName != nil {
-//		cModule_name = C.CString(*moduleName)
-//	}
-//	cSymbolName := C.CString(SymbolName)
-//	return GumAddress(C.gum_module_find_symbol_by_name(cModule_name, cSymbolName))
-//}
-
-//func (o GumOS) name()  {
-//	func GumProcessGetMainModule() *GumModuleDetails {
-//		ptr := C.gum_process_get_main_module()
-//		return GumModuleDetailsWithPtr(unsafe.Pointer(ptr))
-//	}
-//}

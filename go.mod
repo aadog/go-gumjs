@@ -3,7 +3,7 @@ module github.com/aadog/go-gumjs
 go 1.22
 
 require (
-	github.com/aadog/go-ffi v0.0.0-20240217054044-f4998dee7225
+	github.com/aadog/go-ffi v0.0.0-20240218110600-29363d58f360
 	github.com/samber/lo v1.39.0
 	github.com/samber/mo v1.11.0
 )
