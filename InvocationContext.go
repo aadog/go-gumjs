@@ -25,7 +25,7 @@ func (g *InvocationContext) ReplaceNthArgumentPtr(n uint, value ffi.NativePointe
 	C.gum_invocation_context_replace_nth_argument((*C.GumInvocationContext)(g.ptr), C.uint(n), (C.gpointer)(value.Ptr()))
 }
 
-func (g *InvocationContext) ReplaceReturnValuePtr(n uint, value ffi.NativePointer) {
+func (g *InvocationContext) ReplaceReturnValuePtr(value ffi.NativePointer) {
 	C.gum_invocation_context_replace_return_value((*C.GumInvocationContext)(g.ptr), (C.gpointer)(value.Ptr()))
 }
 
