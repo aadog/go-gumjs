@@ -25,8 +25,15 @@ func (g *InvocationContext) ReplaceNthArgumentPtr(n uint, value ffi.NativePointe
 	C.gum_invocation_context_replace_nth_argument((*C.GumInvocationContext)(g.ptr), C.uint(n), (C.gpointer)(value.Ptr()))
 }
 
+func (g *InvocationContext) ReplaceReturnValuePtr(n uint, value ffi.NativePointer) {
+	C.gum_invocation_context_replace_return_value((*C.GumInvocationContext)(g.ptr), (C.gpointer)(value.Ptr()))
+}
+
 func (g *InvocationContext) GetReturnValuePtr() ffi.NativePointer {
 	return ffi.Ptr(uintptr(C.gum_invocation_context_get_return_value((*C.GumInvocationContext)(g.ptr))))
+}
+func (g *InvocationContext) GetReturnAddressPtr() ffi.NativePointer {
+	return ffi.Ptr(uintptr(C.gum_invocation_context_get_return_address((*C.GumInvocationContext)(g.ptr))))
 }
 
 func (g *InvocationContext) GetThreadId() uint {
