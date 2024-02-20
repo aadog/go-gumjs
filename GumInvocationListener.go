@@ -13,8 +13,9 @@ import (
 )
 
 type GumInvocationListener struct {
-	ptr unsafe.Pointer
-	Id  string
+	ptr  unsafe.Pointer
+	Id   string
+	Vals map[string]any
 }
 
 var mpGumInvocationListenerCallback sync.Map
