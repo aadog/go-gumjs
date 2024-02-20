@@ -13,9 +13,8 @@ import (
 )
 
 type GumInvocationListener struct {
-	ptr  unsafe.Pointer
-	Id   string
-	Vals map[string]any
+	ptr unsafe.Pointer
+	Id  string
 }
 
 var mpGumInvocationListenerCallback sync.Map
@@ -32,11 +31,7 @@ func InvocationListenerCallbackOnEnter(listener unsafe.Pointer, context unsafe.P
 	switch proxy := iproxy.(type) {
 	case *InvocationListenerCallbacks:
 		if proxy.OnEnter != nil {
-			proxy.GetOnEnter()(InvocationContextWithPtr(context))
-		}
-	case InstructionProbeCallback:
-		if proxy.GetOnEnter() != nil {
-			proxy.GetOnEnter()(InvocationContextWithPtr(context))
+			proxy.GetOnEnter()(proxy, InvocationContextWithPtr(context))
 		}
 	}
 }
@@ -52,11 +47,7 @@ func InvocationListenerCallbackOnLeave(listener unsafe.Pointer, context unsafe.P
 	switch proxy := iproxy.(type) {
 	case *InvocationListenerCallbacks:
 		if proxy.GetOnLeave() != nil {
-			proxy.GetOnLeave()(InvocationContextWithPtr(context))
-		}
-	case InstructionProbeCallback:
-		if proxy.GetOnLeave() != nil {
-			proxy.GetOnLeave()(InvocationContextWithPtr(context))
+			proxy.GetOnLeave()(proxy, InvocationContextWithPtr(context))
 		}
 	}
 }
