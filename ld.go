@@ -1,7 +1,7 @@
 package gumjs
 
 /*
-#cgo LDFLAGS: -lfrida-gumjs -ldl -lm -lstdc++
+#cgo LDFLAGS: -lfrida-gumjs -ldl -lm -lc++_shared
 #cgo CXXFLAGS: -std=c++11
 #cgo CFLAGS: -I/usr/local/include/ -w
 #cgo darwin LDFLAGS: -lbsm -framework Foundation -framework AppKit -lresolv -lpthread
